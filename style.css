@@ -1,23 +1,30 @@
 /* 全局設定：沉穩的深灰藍漸層背景，卡片整體置中 */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(135deg, #0d1512 0%, #13221c 100%);
-    display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; color: #ecfdf5;
+    background: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0; 
+    color: #f1f5f9;
 }
+
+/* 主卡片 */
 .card {
-    background: #192b23; /* 卡片底色 */
-    padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); width: 480px; box-sizing: border-box; border: 1px solid #274437;
+    background: #1e293b; 
+    padding: 40px; 
+    border-radius: 20px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
+    width: 480px; 
+    box-sizing: border-box; 
+    border: 1px solid #334155;
 }
-.checkbox-container, select, .result, .box-card {
-    background: #111b17 !important; /* 內部區塊深底色 */
-    border: 2px solid #274437 !important;
-    color: #ecfdf5 !important;
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 25px;
 }
-.checkbox-item { background: #192b23 !important; border: 1px solid #274437 !important; color: #ecfdf5 !important; }
-.checkbox-item:hover { background: #274437 !important; border-color: #34d399 !important; color: #34d399 !important; }
-h2, .box-title, label { color: #ffffff !important; }
-.section-title { color: #34d399 !important; border-bottom-color: #274437 !important; }
-.price { color: #f87171 !important; }
 
 .logo-container img {
     width: 100%;
@@ -29,7 +36,7 @@ h2, .box-title, label { color: #ffffff !important; }
 h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #0f172a;
+    color: #ffffff;
     font-size: 24px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -42,51 +49,50 @@ h2 {
 label {
     display: block;
     font-size: 14px;
-    color: #475569;
+    color: #94a3b8;
     margin-bottom: 8px;
     font-weight: 700;
-    text-align: left;
+    text-align: left; /* 保持靠左 */
 }
 
-/* 下拉選單：精緻邊框與深色聚焦特效 */
+/* 下拉選單與區塊 */
 select {
     width: 100%;
     padding: 12px 14px;
     font-size: 15px;
     border-radius: 10px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #475569;
     outline: none;
-    background-color: #f8fafc;
+    background-color: #0f172a;
     box-sizing: border-box;
-    transition: all 0.2s ease;
-    color: #1e293b;
+    color: #ffffff;
     font-weight: 500;
+    text-align: left;
 }
 select:focus {
-    border-color: #0284c7;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
 }
 
-/* 勾選方塊外框：帶有層次感的微灰底 */
 .checkbox-container {
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
+    background: #0f172a;
+    border: 2px solid #475569;
     padding: 20px;
     border-radius: 14px;
     margin-bottom: 22px;
-    text-align: left;
+    text-align: left; /* 保持靠左 */
 }
 
 .section-title {
     font-size: 13px;
     font-weight: 800;
-    color: #0284c7;
+    color: #38bdf8;
     margin-bottom: 12px;
     letter-spacing: 0.5px;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid #334155;
     padding-bottom: 6px;
     text-transform: uppercase;
+    text-align: left; /* 保持靠左 */
 }
 
 .checkbox-grid {
@@ -99,126 +105,122 @@ select:focus {
     margin-bottom: 0;
 }
 
-/* 勾選項目：現代圓角按鈕感，懸停時亮起 */
 .checkbox-item {
     display: flex;
     align-items: center;
     font-size: 13px;
-    color: #334155;
+    color: #f1f5f9;
     font-weight: 600;
     cursor: pointer;
     padding: 8px 10px;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
+    background: #1e293b;
+    border: 1px solid #475569;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    text-align: left; /* 保持靠左 */
 }
 .checkbox-item:hover {
-    background-color: #f0f9ff;
-    border-color: #bae6fd;
-    color: #0369a1;
+    background-color: #334155;
+    border-color: #38bdf8;
+    color: #38bdf8;
 }
 
 .checkbox-item input {
     margin-right: 8px;
     transform: scale(1.2);
     cursor: pointer;
-    accent-color: #0284c7;
+    accent-color: #38bdf8;
 }
 
-.checkbox-item input:disabled {
-    cursor: not-allowed;
-}
 .checkbox-item.disabled {
-    color: #cbd5e1;
-    background-color: #f1f5f9 !important;
-    border-color: #e2e8f0 !important;
+    color: #64748b;
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
     cursor: not-allowed;
 }
 
-/* 結果顯示：高質感深色框包覆金額與資訊 */
+/* 結果顯示框：文字靠左，金額靠右 */
 .result {
     font-size: 14px;
-    color: #334155;
-    background: #f8fafc;
+    color: #f1f5f9;
+    background: #0f172a;
     padding: 22px;
     border-radius: 14px;
-    border: 2px solid #e2e8f0;
-    text-align: left; /* 保持靠左對齊 */
+    border: 2px solid #475569;
+    text-align: left; /* 保持靠左 */
 }
 
 .result-item {
     margin-bottom: 8px;
     font-weight: 600;
-    text-align: left;
+    text-align: left; /* 保持靠左 */
 }
 
 .price {
     font-size: 32px;
     font-weight: 900;
-    color: #dc2626;
-    text-align: right; /* 金額維持靠右 */
+    color: #f87171;
+    text-align: right; /* 金額維持原本的靠右 */
     margin-top: 5px;
     letter-spacing: -0.5px;
 }
 
 .error-msg {
-    color: #dc2626;
+    color: #f87171;
     font-size: 12px;
     text-align: center;
     margin-top: 10px;
     font-weight: 700;
 }
 
-/* 獨立卡片框樣式（匯款資訊框、報名流程框 - 保持靠左對齊） */
+/* 獨立卡片框（匯款資訊、報名流程）：文字保持靠左 */
 .box-card {
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
+    background: #0f172a;
+    border: 2px solid #475569;
     padding: 18px;
     border-radius: 14px;
     margin-top: 15px;
     font-size: 13px;
-    color: #334155;
-    text-align: left;
+    color: #f1f5f9;
+    text-align: left; /* 保持靠左 */
 }
 .box-title {
     font-weight: 800;
-    color: #0f172a;
+    color: #ffffff;
     margin-bottom: 10px;
     font-size: 14px;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid #334155;
     padding-bottom: 6px;
-    text-align: left;
+    text-align: left; /* 保持靠左 */
 }
 .payment-content div {
     margin-bottom: 6px;
     word-break: break-all;
-    text-align: left;
+    text-align: left; /* 保持靠左 */
 }
 .notice-text {
-    color: #b91c1c;
+    color: #fca5a5;
     font-size: 12px;
     font-weight: 600;
     line-height: 1.5;
-    text-align: left;
+    text-align: left; /* 保持靠左 */
 }
 
-/* 底部聯絡資訊：保持靠左對齊 */
+/* 底部聯絡資訊：保持靠左 */
 .contact-info {
     margin-top: 30px;
     padding-top: 18px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #334155;
     font-size: 13px;
-    color: #64748b;
+    color: #94a3b8;
     line-height: 1.6;
-    text-align: left;
+    text-align: left; /* 保持靠左 */
 }
 .contact-info div {
     margin-bottom: 6px;
     word-break: break-all;
 }
 .contact-info a {
-    color: #0284c7;
+    color: #38bdf8;
     text-decoration: none;
     font-weight: 600;
 }
