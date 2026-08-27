@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金額查詢系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 380px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            background-color: #fff;
+        }
+        .result {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>金額查詢系統</h2>
+        
+        <!-- 第一層主選單 -->
+        <div class="form-group">
+            <label for="mainCategory">選擇主類別：</label>
+            <select id="mainCategory" onchange="handleMainChange()">
+                <option value="" disabled selected>請選擇項目</option>
+                <option value="training">人才培訓</option>
+                <option value="regen">再生醫療</option>
+                <option value="ldts">第三類 LDTs</option>
+            </select>
+        </div>
+
+        <!-- 第二層子選單 (預設隱藏，選 LDTs 時才出現) -->
+        <div class="form-group" id="subCategoryGroup" style="display: none;">
+            <label for="subCategory">選擇 LDTs 細項：</label>
+            <select id="subCategory" onchange="updatePrice()">
+                <option value="" disabled selected>請選擇細項</option>
+                <option value="6000">單類別 A+B</option>
+                <option value="9500">A+B+D</option>
+            </select>
+        </div>
+
+        <!-- 顯示結果 -->
+        <div class="result">
+            對應金額：
+            <div class="price" id="priceDisplay">NT$ 0</div>
+        </div>
+    </div>
+
+    <script>
+        function handleMainChange() {
+            const mainCategory = document.getElementById("mainCategory").value;
+            const subCategoryGroup = document.getElementById("subCategoryGroup");
+            const subCategory = document.getElementById("subCategory");
+            const priceDisplay = document.getElementById("priceDisplay");
+
+            // 重置子選單與金額
+            subCategory.value = "";
+            priceDisplay.textContent = "NT$ 0";
+
+            if (mainCategory === "ldts") {
+                // 如果選第三類 LDTs，顯示第二層選單
+                subCategoryGroup.style.display = "block";
+            } else {
+                // 其他選項隱藏第二層，並直接顯示對應金額
+                subCategoryGroup.style.display = "none";
+                
+                if (mainCategory === "training") {
+                    priceDisplay.textContent = "NT$ 500";
+                } else if (mainCategory === "regen") {
+                    priceDisplay.textContent = `NT$ ${Number(3200).toLocaleString()}`;
+                }
+            }
+        }
+
+        function updatePrice() {
+            const subCategoryValue = document.getElementById("subCategory").value;
+            const priceDisplay = document.getElementById("priceDisplay");
+
+            if (subCategoryValue) {
+                priceDisplay.textContent = `NT$ ${Number(subCategoryValue).toLocaleString()}`;
+            } else {
+                priceDisplay.textContent = "NT$ 0";
+            }
+        }
+    </script>
+
+</body>
+</html>
