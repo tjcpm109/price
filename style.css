@@ -220,4 +220,33 @@
     .contact-info a:hover {
         text-decoration: underline;
     }
+/* 獨立卡片框樣式（與總金額框風格一致） */
+    .box-card {
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        padding: 18px;
+        border-radius: 14px;
+        margin-top: 15px;
+        font-size: 13px;
+        color: #334155;
+        text-align: left;
+    }
+    .box-title {
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 10px;
+        font-size: 14px;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 6px;
+    }
+    .payment-content div {
+        margin-bottom: 6px;
+        word-break: break-all;
+    }
+    .notice-text {
+        color: #b91c1c;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
 </style>
