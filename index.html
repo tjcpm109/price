@@ -276,7 +276,7 @@
         <div class="result" id="resultBox">
             <div class="result-item" id="categoryText" style="display: none;">報名類別：<span id="categoryDisplay" style="font-weight: bold; color: #333;"></span></div>
             <div class="result-item" id="extraFeeText" style="display: none;">加類別金額：<span id="extraDisplay">NT$ 0</span></div>
-            <div>最終應繳報名費：</div>
+            <div>應繳報名費：</div>
             <div class="price" id="priceDisplay">NT$ 0</div>
         </div>
 
@@ -320,7 +320,9 @@
             clearAllSelections();
             extraFeeText.style.display = "none";
             categoryText.style.display = "none";
-
+            document.getElementById("paymentBox").style.display = "none";
+            document.getElementById("processBox").style.display = "none";
+            
             if (mainCategory === "ldts") {
                 ldtsContainer.style.display = "block";
                 priceDisplay.textContent = "NT$ 0";
@@ -449,10 +451,15 @@
                     extraFeeText.style.display = "none";
                 }
                 priceDisplay.textContent = `NT$ ${match.total.toLocaleString()}`;
+                document.getElementById("paymentBox").style.display = "block";
+                document.getElementById("processBox").style.display = "block";
             } else {
                 priceDisplay.textContent = "NT$ 0";
                 extraFeeText.style.display = "none";
                 categoryText.style.display = "none";
+                document.getElementById("paymentBox").style.display = "none";
+                document.getElementById("processBox").style.display = "none";
+                return;
                 if (checkedValues.length > 1) {
                     errorMsg.textContent = "此勾選組合無對應的計費方案";
                 }
