@@ -295,8 +295,17 @@
 
             // 對照表規則與全名對應
             const rules = {
+                // ====== 單一選項 (新進為 4500，資深為 3000) ======
+                'A': { name: '新進：專任技術人員', extra: 0, total: 4500 },
+                'B': { name: '新進：醫檢師', extra: 0, total: 4500 },
                 'C': { name: '新進：醫師', extra: 0, total: 4500 },
+                'D': { name: '新進：其他相關人員', extra: 0, total: 4500 },
+                
+                'E': { name: '資深：專任技術人員', extra: 0, total: 3000 },
+                'F': { name: '資深：醫檢師', extra: 0, total: 3000 },
                 'G': { name: '資深：醫師', extra: 0, total: 3000 },
+                'H': { name: '資深：其他相關人員', extra: 0, total: 3000 },
+
                 
                 // 新進多類別
                 'A+B': { name: '新進：專任技術人員 + 醫檢師', extra: 500, total: 5000 },
