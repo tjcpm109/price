@@ -98,8 +98,7 @@
             clearAllSelections();
             extraFeeText.style.display = "none";
             categoryText.style.display = "none";
-            document.getElementById("paymentBox").style.display = "none";
-            document.getElementById("processBox").style.display = "none";
+            
             
             if (mainCategory === "ldts") {
                 ldtsContainer.style.display = "block";
@@ -229,14 +228,12 @@
                     extraFeeText.style.display = "none";
                 }
                 priceDisplay.textContent = `NT$ ${match.total.toLocaleString()}`;
-                document.getElementById("paymentBox").style.display = "block";
-                document.getElementById("processBox").style.display = "block";
+                
             } else {
                 priceDisplay.textContent = "NT$ 0";
                 extraFeeText.style.display = "none";
                 categoryText.style.display = "none";
-                document.getElementById("paymentBox").style.display = "none";
-                document.getElementById("processBox").style.display = "none";
+                
                 return;
                 if (checkedValues.length > 1) {
                     errorMsg.textContent = "此勾選組合無對應的計費方案";
