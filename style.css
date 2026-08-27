@@ -9,15 +9,15 @@ body {
     margin: 0 !important; 
 }
 
-/* 主卡片：柔和的淺綠色背景 */
+/* 主卡片：改為純白色背景 */
 .card {
-    background: #f0fdf4 !important; 
+    background: #ffffff !important; 
     padding: 40px !important; 
     border-radius: 20px !important; 
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important; 
     width: 480px !important; 
     box-sizing: border-box !important; 
-    border: 1px solid #bbf7d0 !important;
+    border: 1px solid #e2e8f0 !important;
 }
 
 .logo-container {
@@ -55,7 +55,7 @@ label {
     text-align: left;
 }
 
-/* 下拉選單：背景改為跟主卡片一樣的淺綠色 */
+/* 下拉選單：純白底色配微綠邊框 */
 select {
     width: 100%;
     padding: 12px 14px;
@@ -63,7 +63,7 @@ select {
     border-radius: 10px;
     border: 2px solid #86efac !important;
     outline: none;
-    background-color: #f0fdf4 !important;
+    background-color: #ffffff !important;
     box-sizing: border-box;
     color: #064e3b !important;
     font-weight: 600;
@@ -72,11 +72,10 @@ select {
 }
 select:focus {
     border-color: #059669 !important;
-    background-color: #ffffff !important;
     box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
 }
 
-/* 勾選方塊外框：背景改為跟主卡片一樣的淺綠色 */
+/* 勾選方塊外框：維持柔和淺綠底來做區隔 */
 .checkbox-container {
     background: #f0fdf4 !important;
     border: 2px solid #86efac !important;
@@ -108,7 +107,7 @@ select:focus {
     margin-bottom: 0;
 }
 
-/* 勾選項目：維持純白以便點擊辨識，懸停時變深 */
+/* 勾選項目：白底，懸停時變淺綠 */
 .checkbox-item {
     display: flex;
     align-items: center;
@@ -143,7 +142,7 @@ select:focus {
     cursor: not-allowed;
 }
 
-/* 結果顯示框：背景改為跟主卡片一樣的淺綠色 */
+/* 結果顯示框：淺綠底 */
 .result {
     font-size: 14px;
     color: #064e3b !important;
@@ -161,7 +160,7 @@ select:focus {
     color: #064e3b !important;
 }
 
-/* 金額：維持醒目紅字 */
+/* 金額：醒目紅字 */
 .price {
     font-size: 32px;
     font-weight: 900;
@@ -179,7 +178,7 @@ select:focus {
     font-weight: 700;
 }
 
-/* 獨立卡片框（匯款資訊、報名流程）：背景改為跟主卡片一樣的淺綠色 */
+/* 獨立卡片框（匯款資訊、報名流程）：淺綠底 */
 .box-card {
     background: #f0fdf4 !important;
     border: 2px solid #86efac !important;
@@ -217,9 +216,9 @@ select:focus {
 .contact-info {
     margin-top: 30px;
     padding-top: 18px;
-    border-top: 1px solid #86efac !important;
+    border-top: 1px solid #e2e8f0 !important;
     font-size: 13px;
-    color: #047857 !important;
+    color: #64748b !important;
     line-height: 1.6;
     text-align: left;
 }
