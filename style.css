@@ -1,4 +1,4 @@
-/* 全局設定：沉穩的深灰藍漸層背景，內容整體置中 */
+/* 全局設定：沉穩的深灰藍漸層背景，卡片整體置中 */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -51,7 +51,7 @@ label {
     color: #475569;
     margin-bottom: 8px;
     font-weight: 700;
-    text-align: left; /* 表單標籤靠左保持易讀性 */
+    text-align: left;
 }
 
 /* 下拉選單：精緻邊框與深色聚焦特效 */
@@ -150,19 +150,20 @@ select:focus {
     padding: 22px;
     border-radius: 14px;
     border: 2px solid #e2e8f0;
-    text-align: center; /* 讓結果區域文字置中 */
+    text-align: left; /* 保持靠左對齊 */
 }
 
 .result-item {
     margin-bottom: 8px;
     font-weight: 600;
+    text-align: left;
 }
 
 .price {
     font-size: 32px;
     font-weight: 900;
     color: #dc2626;
-    text-align: center; /* 金額置中 */
+    text-align: right; /* 金額維持靠右 */
     margin-top: 5px;
     letter-spacing: -0.5px;
 }
@@ -175,7 +176,7 @@ select:focus {
     font-weight: 700;
 }
 
-/* 獨立卡片框樣式（匯款資訊框、報名流程框 - 改為置中對齊） */
+/* 獨立卡片框樣式（匯款資訊框、報名流程框 - 保持靠左對齊） */
 .box-card {
     background: #f8fafc;
     border: 2px solid #e2e8f0;
@@ -184,7 +185,7 @@ select:focus {
     margin-top: 15px;
     font-size: 13px;
     color: #334155;
-    text-align: center; /* 整個區塊文字置中 */
+    text-align: left;
 }
 .box-title {
     font-weight: 800;
@@ -193,22 +194,22 @@ select:focus {
     font-size: 14px;
     border-bottom: 2px solid #e2e8f0;
     padding-bottom: 6px;
-    text-align: center; /* 標題置中 */
+    text-align: left;
 }
 .payment-content div {
     margin-bottom: 6px;
     word-break: break-all;
-    text-align: center; /* 內容文字置中 */
+    text-align: left;
 }
 .notice-text {
     color: #b91c1c;
     font-size: 12px;
     font-weight: 600;
     line-height: 1.5;
-    text-align: center; /* 注意事項文字置中 */
+    text-align: left;
 }
 
-/* 底部聯絡資訊：置中對齊 */
+/* 底部聯絡資訊：保持靠左對齊 */
 .contact-info {
     margin-top: 30px;
     padding-top: 18px;
@@ -216,7 +217,7 @@ select:focus {
     font-size: 13px;
     color: #64748b;
     line-height: 1.6;
-    text-align: center; /* 聯絡資訊置中 */
+    text-align: left;
 }
 .contact-info div {
     margin-bottom: 6px;
