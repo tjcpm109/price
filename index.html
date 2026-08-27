@@ -27,8 +27,9 @@
             margin-bottom: 20px;
         }
         .logo-container img {
-            max-width: 160px;
-            height: auto;
+            width: 100%;       /* 讓 Logo 寬度自動撐滿整個卡片容器 */
+            height: auto;      /* 高度等比例縮放，避免變形 */
+            display: block;    /* 確保排版正常 */
         }
         h2 {
             text-align: center;
