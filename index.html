@@ -11,7 +11,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
         .card {
@@ -20,11 +20,21 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 380px;
+            width: 400px;
+            box-sizing: border-box;
+        }
+        /* Logo 樣式 */
+        .logo-container {
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            max-width: 150px; /* 可根據你的 logo 大小調整 */
+            height: auto;
         }
         h2 {
             margin-bottom: 20px;
             color: #333;
+            font-size: 22px;
         }
         .form-group {
             margin-bottom: 15px;
@@ -44,11 +54,14 @@
             border: 1px solid #ccc;
             outline: none;
             background-color: #fff;
+            box-sizing: border-box;
         }
         .result {
             font-size: 18px;
             color: #555;
             margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
         .price {
             font-size: 28px;
@@ -56,11 +69,37 @@
             color: #e74c3c;
             margin-top: 5px;
         }
+        /* 底部聯絡資訊樣式 */
+        .contact-info {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+            text-align: left;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .contact-info div {
+            margin-bottom: 5px;
+            word-break: break-all;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <div class="card">
+        <!-- Logo 區塊：請把 src 換成你的 logo 圖片網址或本地檔案名稱 -->
+        <div class="logo-container">
+            <img src="https://via.placeholder.com/150x50?text=Your+Logo" alt="公司 Logo" id="companyLogo">
+        </div>
+
         <h2>金額查詢系統</h2>
         
         <!-- 第一層主選單 -->
@@ -89,6 +128,14 @@
             對應金額：
             <div class="price" id="priceDisplay">NT$ 0</div>
         </div>
+
+        <!-- 底部聯絡資訊 -->
+        <div class="contact-info">
+            <div>📞 <strong>聯絡電話：</strong><a href="tel:0212345678">02-1234-5678</a></div>
+            <div>✉️ <strong>電子信箱：</strong><a href="mailto:service@example.com">service@example.com</a></div>
+            <div>🌐 <strong>官方網站：</strong><a href="https://www.example.com" target="_blank">www.example.com</a></div>
+            <div>📝 <strong>報名網址：</strong><a href="https://www.example.com/register" target="_blank">點此前往報名</a></div>
+        </div>
     </div>
 
     <script>
@@ -103,10 +150,8 @@
             priceDisplay.textContent = "NT$ 0";
 
             if (mainCategory === "ldts") {
-                // 如果選第三類 LDTs，顯示第二層選單
                 subCategoryGroup.style.display = "block";
             } else {
-                // 其他選項隱藏第二層，並直接顯示對應金額
                 subCategoryGroup.style.display = "none";
                 
                 if (mainCategory === "training") {
