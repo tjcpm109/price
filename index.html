@@ -20,7 +20,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 400px;
+            width: 420px;
             box-sizing: border-box;
         }
         /* Logo 樣式 */
@@ -28,7 +28,7 @@
             margin-bottom: 20px;
         }
         .logo-container img {
-            max-width: 160px; /* 可根據你的 logo 大小調整 */
+            max-width: 160px;
             height: auto;
         }
         h2 {
@@ -49,7 +49,7 @@
         select {
             width: 100%;
             padding: 10px;
-            font-size: 16px;
+            font-size: 15px;
             border-radius: 6px;
             border: 1px solid #ccc;
             outline: none;
@@ -57,17 +57,25 @@
             box-sizing: border-box;
         }
         .result {
-            font-size: 18px;
+            font-size: 16px;
             color: #555;
             margin-top: 20px;
             border-top: 1px solid #eee;
             padding-top: 15px;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .result-item {
+            margin-bottom: 8px;
         }
         .price {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             color: #e74c3c;
             margin-top: 5px;
+            text-align: right;
         }
         /* 底部聯絡資訊樣式 */
         .contact-info {
@@ -95,7 +103,7 @@
 <body>
 
     <div class="card">
-        <!-- Logo 區塊：直接讀取你指定 GitHub 倉庫中的 logo.png -->
+        <!-- Logo 區塊 -->
         <div class="logo-container">
             <img src="https://raw.githubusercontent.com/tjcpm109/tjcpm/cead8fe9d60a29ef4e203247ecc3f692dd5433eb/logo.png" alt="公司 Logo" id="companyLogo">
         </div>
@@ -107,29 +115,51 @@
             <label for="mainCategory">選擇主類別：</label>
             <select id="mainCategory" onchange="handleMainChange()">
                 <option value="" disabled selected>請選擇項目</option>
-                <option value="training">人才培訓 (NT$ 500)</option>
-                <option value="regen">再生醫療 (NT$ 3,200)</option>
-                <option value="ldts">第三類 LDTs</option>
+                <option value="training">人才培訓</option>
+                <option value="regen">再生醫療</option>
+                <option value="ldts">第三類 LDTs 審查報名</option>
             </select>
         </div>
 
-        <!-- 第二層子選單 (預設隱藏，選 LDTs 時才出現) -->
-        <div class="form-group" id="subCategoryGroup" style="display: none;">
-            <label for="subCategory">選擇 LDTs 細項：</label>
-            <select id="subCategory" onchange="updatePrice()">
-                <option value="" disabled selected>請選擇細項</option>
-                <option value="6000">單類別 A+B (NT$ 6,000)</option>
-                <option value="9500">A+B+D (NT$ 9,500)</option>
+        <!-- 第二層 LDTs 身分別 (選 LDTs 時出現) -->
+        <div class="form-group" id="ldtsSubGroup" style="display: none;">
+            <label for="ldtsType">選擇身分別 / 組合類別：</label>
+            <select id="ldtsType" onchange="handleLdtsTypeChange()">
+                <option value="" disabled selected>請選擇身分與組合</option>
+                <optgroup label="新進 (4,500元 + 加類別金額)">
+                    <option value="new_AB">新進：A+B (加類別 500元 / 報名費 5,000元)</option>
+                    <option value="new_AD">新進：A+D (加類別 1,000元 / 報名費 5,500元)</option>
+                    <option value="new_BD">新進：B+D (加類別 500元 / 報名費 5,000元)</option>
+                    <option value="new_ABD">新進：A+B+D (加類別 1,500元 / 報名費 6,000元)</option>
+                </optgroup>
+                <optgroup label="資深 (3,000元 + 加類別金額)">
+                    <option value="senior_EF">資深：E+F (加類別 1,500元 / 報名費 4,500元)</option>
+                    <option value="senior_EH">資深：E+H (加類別 1,500元 / 報名費 4,500元)</option>
+                    <option value="senior_FH">資深：F+H (加類別 1,000元 / 報名費 4,000元)</option>
+                    <option value="senior_EFH">資深：E+F+H (加類別 3,000元 / 報名費 6,000元)</option>
+                </optgroup>
+                <optgroup label="跨資格報名 (資深+新進實驗室人員，3,000元 + 加類別金額)">
+                    <option value="cross_EB">跨資格：E+B (加類別 2,000元 / 報名費 5,000元)</option>
+                    <option value="cross_ED">跨資格：E+D (加類別 3,000元 / 報名費 6,000元)</option>
+                    <option value="cross_EBD">跨資格：E+B+D (加類別 3,000元 / 報名費 6,000元)</option>
+                    <option value="cross_FA">跨資格：F+A (加類別 2,500元 / 報名費 5,500元)</option>
+                    <option value="cross_FD">跨資格：F+D (加類別 2,500元 / 報名費 5,500元)</option>
+                    <option value="cross_FAD">跨資格：F+A+D (加類別 3,000元 / 報名費 6,000元)</option>
+                    <option value="cross_HA">跨資格：H+A (加類別 3,000元 / 報名費 6,000元)</option>
+                    <option value="cross_HB">跨資格：H+B (加類別 2,500元 / 報名費 5,500元)</option>
+                    <option value="cross_HAB">跨資格：H+A+B (加類別 3,000元 / 報名費 6,000元)</option>
+                </optgroup>
             </select>
         </div>
 
         <!-- 顯示結果 -->
-        <div class="result">
-            對應金額：
+        <div class="result" id="resultBox">
+            <div class="result-item" id="extraFeeText" style="display: none;">加類別金額：<span id="extraDisplay">NT$ 0</span></div>
+            <div>最終應繳報名費：</div>
             <div class="price" id="priceDisplay">NT$ 0</div>
         </div>
 
-        <!-- 底部聯絡資訊 (可自行替換真實資料) -->
+        <!-- 底部聯絡資訊 -->
         <div class="contact-info">
             <div>📞 <strong>聯絡電話：</strong><a href="tel:0212345678">02-1234-5678</a></div>
             <div>✉️ <strong>電子信箱：</strong><a href="mailto:service@example.com">service@example.com</a></div>
@@ -139,36 +169,68 @@
     </div>
 
     <script>
+        // 定義 LDTs 各選項的加類別金額與總報名費
+        const ldtsPrices = {
+            // 新進
+            "new_AB": { extra: 500, total: 5000 },
+            "new_AD": { extra: 1000, total: 5500 },
+            "new_BD": { extra: 500, total: 5000 },
+            "new_ABD": { extra: 1500, total: 6000 },
+            // 資深
+            "senior_EF": { extra: 1500, total: 4500 },
+            "senior_EH": { extra: 1500, total: 4500 },
+            "senior_FH": { extra: 1000, total: 4000 },
+            "senior_EFH": { extra: 3000, total: 6000 },
+            // 跨資格
+            "cross_EB": { extra: 2000, total: 5000 },
+            "cross_ED": { extra: 3000, total: 6000 },
+            "cross_EBD": { extra: 3000, total: 6000 },
+            "cross_FA": { extra: 2500, total: 5500 },
+            "cross_FD": { extra: 2500, total: 5500 },
+            "cross_FAD": { extra: 3000, total: 6000 },
+            "cross_HA": { extra: 3000, total: 6000 },
+            "cross_HB": { extra: 2500, total: 5500 },
+            "cross_HAB": { extra: 3000, total: 6000 }
+        };
+
         function handleMainChange() {
             const mainCategory = document.getElementById("mainCategory").value;
-            const subCategoryGroup = document.getElementById("subCategoryGroup");
-            const subCategory = document.getElementById("subCategory");
+            const ldtsSubGroup = document.getElementById("ldtsSubGroup");
+            const ldtsType = document.getElementById("ldtsType");
             const priceDisplay = document.getElementById("priceDisplay");
+            const extraFeeText = document.getElementById("extraFeeText");
+            const extraDisplay = document.getElementById("extraDisplay");
 
-            // 重置子選單與金額
-            subCategory.value = "";
-            priceDisplay.textContent = "NT$ 0";
+            // 重置
+            ldtsType.value = "";
+            extraFeeText.style.display = "none";
 
             if (mainCategory === "ldts") {
-                subCategoryGroup.style.display = "block";
+                ldtsSubGroup.style.display = "block";
+                priceDisplay.textContent = "NT$ 0";
             } else {
-                subCategoryGroup.style.display = "none";
-                
+                ldtsSubGroup.style.display = "none";
                 if (mainCategory === "training") {
                     priceDisplay.textContent = "NT$ 500";
                 } else if (mainCategory === "regen") {
-                    priceDisplay.textContent = `NT$ ${Number(3200).toLocaleString()}`;
+                    priceDisplay.textContent = "NT$ 3,200";
                 }
             }
         }
 
-        function updatePrice() {
-            const subCategoryValue = document.getElementById("subCategory").value;
+        function handleLdtsTypeChange() {
+            const selectedKey = document.getElementById("ldtsType").value;
             const priceDisplay = document.getElementById("priceDisplay");
+            const extraFeeText = document.getElementById("extraFeeText");
+            const extraDisplay = document.getElementById("extraDisplay");
 
-            if (subCategoryValue) {
-                priceDisplay.textContent = `NT$ ${Number(subCategoryValue).toLocaleString()}`;
+            if (selectedKey && ldtsPrices[selectedKey]) {
+                const data = ldtsPrices[selectedKey];
+                extraDisplay.textContent = `NT$ ${data.extra.toLocaleString()}`;
+                extraFeeText.style.display = "block";
+                priceDisplay.textContent = `NT$ ${data.total.toLocaleString()}`;
             } else {
+                extraFeeText.style.display = "none";
                 priceDisplay.textContent = "NT$ 0";
             }
         }
