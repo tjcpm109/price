@@ -272,24 +272,34 @@
         </div>
 
         <!-- 顯示結果 -->
+<!-- 顯示結果 -->
         <div class="result" id="resultBox">
             <div class="result-item" id="categoryText" style="display: none;">報名類別：<span id="categoryDisplay" style="font-weight: bold; color: #333;"></span></div>
             <div class="result-item" id="extraFeeText" style="display: none;">加類別金額：<span id="extraDisplay">NT$ 0</span></div>
             <div>最終應繳報名費：</div>
             <div class="price" id="priceDisplay">NT$ 0</div>
         </div>
-        <div class="payment-info">
-                <div class="payment-title">📌 繳費與報名資訊</div>
-                <div class="payment-content">
-                    <div><strong>繳費方式：</strong>匯款、ATM 轉帳方式</div>
-                    <div><strong>銀行與分行別：</strong>安泰銀行 (代碼: 816) 建國分行</div>
-                    <div><strong>帳號：</strong>027-12-600786-1-00</div>
-                    <div><strong>戶名：</strong>台灣精準醫療品質策進會</div>
-                    <div style="margin-top: 8px;"><strong>報名流程：</strong>請先繳費，再至連結填寫【課程報名表】，務必備妥付款帳號末五碼及轉帳日期(可同時上傳截圖或匯款憑證)，以利核對資訊。</div>
-                    <div class="notice-text" style="margin-top: 6px;">⚠️ <strong>【收據日期】</strong>為您繳費入帳日期，如需報帳，請注意日期再繳費⚠️<br>(收據將於課程結束後寄發。若逾信件公告之修正期限，礙於作業流程安排，將無法再協助更改，敬請見諒)</div>
-                    <div class="notice-text" style="margin-top: 6px;">⚠️ <strong>LDTs 課程：</strong>預計開課月份：1月、5月、9月</div>
-                </div>
+
+        <!-- 框 1：匯款資訊框 (與總金額樣式類似) -->
+        <div class="box-card" id="paymentBox" style="display: none;">
+            <div class="box-title">💳 匯款與繳費資訊</div>
+            <div class="payment-content">
+                <div><strong>繳費方式：</strong>匯款、ATM 轉帳方式</div>
+                <div><strong>銀行與分行別：</strong>安泰銀行 (代碼: 816) 建國分行</div>
+                <div><strong>帳號：</strong>027-12-600786-1-00</div>
+                <div><strong>戶名：</strong>台灣精準醫療品質策進會</div>
             </div>
+        </div>
+
+        <!-- 框 2：報名流程與注意事項框 -->
+        <div class="box-card" id="processBox" style="display: none;">
+            <div class="box-title">📝 報名流程與注意事項</div>
+            <div class="payment-content">
+                <div><strong>報名流程：</strong>請先繳費，再至連結填寫【課程報名表】，務必備妥付款帳號末五碼及轉帳日期(可同時上傳截圖或匯款憑證)，以利核對資訊。</div>
+                <div class="notice-text" style="margin-top: 8px;">⚠️ <strong>【收據日期】</strong>為您繳費入帳日期，如需報帳，請注意日期再繳費⚠️<br>(收據將於課程結束後寄發。若逾信件公告之修正期限，礙於作業流程安排，將無法再協助更改，敬請見諒)</div>
+                <div class="notice-text" style="margin-top: 8px;">⚠️ <strong>LDTs 課程：</strong>預計開課月份：1月、5月、9月</div>
+            </div>
+        </div>
 
         <!-- 底部聯絡資訊 -->
         <div class="contact-info">
