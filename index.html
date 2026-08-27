@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TJCPM 課程報名金額查詢</title>
-    <style>
-    /* 整體背景改為現代極簡灰藍色 */
+   <style>
+    /* 整體背景：沉穩的深灰藍漸層 */
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        background-color: #f0f4f8;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         margin: 0;
+        color: #334155;
     }
 
-    /* 卡片加上更柔和的陰影與微調邊框 */
+    /* 主卡片：純白高質感，微弧度邊角與精緻陰影 */
     .card {
-        background: white;
-        padding: 35px;
-        border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        width: 460px;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        width: 480px;
         box-sizing: border-box;
     }
 
@@ -35,19 +36,20 @@
         width: 100%;
         height: auto;
         display: block;
-        border-radius: 8px;
+        border-radius: 10px;
     }
 
     h2 {
         text-align: center;
         margin-bottom: 25px;
-        color: #1e293b;
-        font-size: 22px;
-        font-weight: 700;
+        color: #0f172a;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
     }
 
     .form-group {
-        margin-bottom: 20px;
+        margin-bottom: 22px;
     }
 
     label {
@@ -55,129 +57,171 @@
         font-size: 14px;
         color: #475569;
         margin-bottom: 8px;
-        font-weight: 600;
+        font-weight: 700;
     }
 
-    /* 下拉選單質感升級 */
+    /* 下拉選單：精緻邊框與深色聚焦特效 */
     select {
         width: 100%;
-        padding: 12px;
+        padding: 12px 14px;
         font-size: 15px;
-        border-radius: 8px;
-        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        border: 2px solid #e2e8f0;
         outline: none;
-        background-color: #fff;
+        background-color: #f8fafc;
         box-sizing: border-box;
-        transition: border-color 0.2s;
+        transition: all 0.2s ease;
+        color: #1e293b;
+        font-weight: 500;
     }
     select:focus {
-        border-color: #3b82f6;
+        border-color: #0284c7;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
     }
 
-    /* 勾選方塊區域區塊 */
+    /* 勾選方塊外框：帶有層次感的微灰底 */
     .checkbox-container {
         background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        padding: 18px;
-        border-radius: 10px;
-        margin-bottom: 20px;
+        border: 2px solid #e2e8f0;
+        padding: 20px;
+        border-radius: 14px;
+        margin-bottom: 22px;
     }
 
     .section-title {
         font-size: 13px;
-        font-weight: bold;
-        color: #334155;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #e2e8f0;
+        font-weight: 800;
+        color: #0284c7;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid #e2e8f0;
         padding-bottom: 6px;
+        text-transform: uppercase;
     }
 
     .checkbox-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 12px;
         margin-bottom: 15px;
     }
     .checkbox-grid:last-child {
         margin-bottom: 0;
     }
 
-    /* 點選項目時整行變色，提升互動感 */
+    /* 勾選項目：現代圓角按鈕感，懸停時亮起 */
     .checkbox-item {
         display: flex;
         align-items: center;
         font-size: 13px;
         color: #334155;
+        font-weight: 600;
         cursor: pointer;
-        padding: 6px 8px;
-        border-radius: 6px;
-        transition: background-color 0.2s;
+        padding: 8px 10px;
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        transition: all 0.2s ease;
     }
     .checkbox-item:hover {
-        background-color: #e2e8f0;
+        background-color: #f0f9ff;
+        border-color: #bae6fd;
+        color: #0369a1;
     }
 
     .checkbox-item input {
         margin-right: 8px;
         transform: scale(1.2);
         cursor: pointer;
+        accent-color: #0284c7;
     }
 
     .checkbox-item input:disabled {
         cursor: not-allowed;
     }
     .checkbox-item.disabled {
-        color: #94a3b8;
-        background-color: transparent !important;
+        color: #cbd5e1;
+        background-color: #f1f5f9 !important;
+        border-color: #e2e8f0 !important;
         cursor: not-allowed;
     }
 
-    /* 結果顯示區塊改為亮眼醒目的現代風格 */
+    /* 結果顯示：高質感深色框包覆金額與資訊 */
     .result {
         font-size: 14px;
         color: #334155;
         background: #f8fafc;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #e2e8f0;
+        padding: 22px;
+        border-radius: 14px;
+        border: 2px solid #e2e8f0;
     }
 
     .result-item {
         margin-bottom: 8px;
+        font-weight: 600;
     }
 
     .price {
-        font-size: 28px;
-        font-weight: 800;
-        color: #ef4444;
+        font-size: 32px;
+        font-weight: 900;
+        color: #dc2626;
         text-align: right;
-        margin-top: 8px;
+        margin-top: 5px;
+        letter-spacing: -0.5px;
     }
 
     .error-msg {
-        color: #ef4444;
+        color: #dc2626;
         font-size: 12px;
         text-align: center;
-        margin-top: 8px;
+        margin-top: 10px;
+        font-weight: 700;
+    }
+
+    /* 繳費與報名流程區塊 */
+    .payment-info {
+        margin-top: 18px;
+        padding-top: 15px;
+        border-top: 2px dashed #cbd5e1;
+        font-size: 13px;
+        color: #334155;
+        line-height: 1.6;
+        text-align: left;
+    }
+    .payment-title {
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+    .payment-content div {
+        margin-bottom: 5px;
+        word-break: break-all;
+    }
+    .notice-text {
+        color: #b91c1c;
+        font-size: 12px;
         font-weight: 600;
     }
 
     /* 底部聯絡資訊 */
     .contact-info {
-        margin-top: 25px;
-        padding-top: 15px;
-        border-top: 1px dashed #cbd5e1;
+        margin-top: 30px;
+        padding-top: 18px;
+        border-top: 1px solid #e2e8f0;
         font-size: 13px;
         color: #64748b;
         line-height: 1.6;
     }
     .contact-info div {
-        margin-bottom: 5px;
+        margin-bottom: 6px;
         word-break: break-all;
     }
     .contact-info a {
-        color: #3b82f6;
+        color: #0284c7;
         text-decoration: none;
+        font-weight: 600;
     }
     .contact-info a:hover {
         text-decoration: underline;
