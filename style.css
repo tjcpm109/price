@@ -1,252 +1,232 @@
-<style>
-/* 整體背景：沉穩的深灰藍漸層 */
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        color: #334155;
-    }
+/* 全局設定：沉穩的深灰藍漸層背景，內容整體置中 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #334155;
+}
 
-    /* 主卡片：純白高質感，微弧度邊角與精緻陰影 */
-    .card {
-        background: #ffffff;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        width: 480px;
-        box-sizing: border-box;
-    }
+/* 主卡片：純白高質感，微弧度邊角與精緻陰影 */
+.card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 480px;
+    box-sizing: border-box;
+}
 
-    .logo-container {
-        text-align: center;
-        margin-bottom: 25px;
-    }
+.logo-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
 
-    .logo-container img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 10px;
-    }
+.logo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
 
-    h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        color: #0f172a;
-        font-size: 24px;
-        font-weight: 800;
-        letter-spacing: 0.5px;
-    }
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0f172a;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
 
-    .form-group {
-        margin-bottom: 22px;
-    }
+.form-group {
+    margin-bottom: 22px;
+}
 
-    label {
-        display: block;
-        font-size: 14px;
-        color: #475569;
-        margin-bottom: 8px;
-        font-weight: 700;
-    }
+label {
+    display: block;
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-align: left; /* 表單標籤靠左保持易讀性 */
+}
 
-    /* 下拉選單：精緻邊框與深色聚焦特效 */
-    select {
-        width: 100%;
-        padding: 12px 14px;
-        font-size: 15px;
-        border-radius: 10px;
-        border: 2px solid #e2e8f0;
-        outline: none;
-        background-color: #f8fafc;
-        box-sizing: border-box;
-        transition: all 0.2s ease;
-        color: #1e293b;
-        font-weight: 500;
-    }
-    select:focus {
-        border-color: #0284c7;
-        background-color: #ffffff;
-        box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
-    }
+/* 下拉選單：精緻邊框與深色聚焦特效 */
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    outline: none;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    color: #1e293b;
+    font-weight: 500;
+}
+select:focus {
+    border-color: #0284c7;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+}
 
-    /* 勾選方塊外框：帶有層次感的微灰底 */
-    .checkbox-container {
-        background: #f8fafc;
-        border: 2px solid #e2e8f0;
-        padding: 20px;
-        border-radius: 14px;
-        margin-bottom: 22px;
-    }
+/* 勾選方塊外框：帶有層次感的微灰底 */
+.checkbox-container {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    text-align: left;
+}
 
-    .section-title {
-        font-size: 13px;
-        font-weight: 800;
-        color: #0284c7;
-        margin-bottom: 12px;
-        letter-spacing: 0.5px;
-        border-bottom: 2px solid #e2e8f0;
-        padding-bottom: 6px;
-        text-transform: uppercase;
-    }
+.section-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0284c7;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+}
 
-    .checkbox-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin-bottom: 15px;
-    }
-    .checkbox-grid:last-child {
-        margin-bottom: 0;
-    }
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+.checkbox-grid:last-child {
+    margin-bottom: 0;
+}
 
-    /* 勾選項目：現代圓角按鈕感，懸停時亮起 */
-    .checkbox-item {
-        display: flex;
-        align-items: center;
-        font-size: 13px;
-        color: #334155;
-        font-weight: 600;
-        cursor: pointer;
-        padding: 8px 10px;
-        background: #ffffff;
-        border: 1px solid #cbd5e1;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-    }
-    .checkbox-item:hover {
-        background-color: #f0f9ff;
-        border-color: #bae6fd;
-        color: #0369a1;
-    }
+/* 勾選項目：現代圓角按鈕感，懸停時亮起 */
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #334155;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 10px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.checkbox-item:hover {
+    background-color: #f0f9ff;
+    border-color: #bae6fd;
+    color: #0369a1;
+}
 
-    .checkbox-item input {
-        margin-right: 8px;
-        transform: scale(1.2);
-        cursor: pointer;
-        accent-color: #0284c7;
-    }
+.checkbox-item input {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+    accent-color: #0284c7;
+}
 
-    .checkbox-item input:disabled {
-        cursor: not-allowed;
-    }
-    .checkbox-item.disabled {
-        color: #cbd5e1;
-        background-color: #f1f5f9 !important;
-        border-color: #e2e8f0 !important;
-        cursor: not-allowed;
-    }
+.checkbox-item input:disabled {
+    cursor: not-allowed;
+}
+.checkbox-item.disabled {
+    color: #cbd5e1;
+    background-color: #f1f5f9 !important;
+    border-color: #e2e8f0 !important;
+    cursor: not-allowed;
+}
 
-    /* 結果顯示：高質感深色框包覆金額與資訊 */
-    .result {
-        font-size: 14px;
-        color: #334155;
-        background: #f8fafc;
-        padding: 22px;
-        border-radius: 14px;
-        border: 2px solid #e2e8f0;
-    }
+/* 結果顯示：高質感深色框包覆金額與資訊 */
+.result {
+    font-size: 14px;
+    color: #334155;
+    background: #f8fafc;
+    padding: 22px;
+    border-radius: 14px;
+    border: 2px solid #e2e8f0;
+    text-align: center; /* 讓結果區域文字置中 */
+}
 
-    .result-item {
-        margin-bottom: 8px;
-        font-weight: 600;
-    }
+.result-item {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
 
-    .price {
-        font-size: 32px;
-        font-weight: 900;
-        color: #dc2626;
-        text-align: right;
-        margin-top: 5px;
-        letter-spacing: -0.5px;
-    }
+.price {
+    font-size: 32px;
+    font-weight: 900;
+    color: #dc2626;
+    text-align: center; /* 金額置中 */
+    margin-top: 5px;
+    letter-spacing: -0.5px;
+}
 
-    .error-msg {
-        color: #dc2626;
-        font-size: 12px;
-        text-align: center;
-        margin-top: 10px;
-        font-weight: 700;
-    }
+.error-msg {
+    color: #dc2626;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+}
 
-    /* 繳費與報名流程區塊 */
-    .payment-info {
-        margin-top: 18px;
-        padding-top: 15px;
-        border-top: 2px dashed #cbd5e1;
-        font-size: 13px;
-        color: #334155;
-        line-height: 1.6;
-        text-align: left;
-    }
-    .payment-title {
-        font-weight: 800;
-        color: #0f172a;
-        margin-bottom: 8px;
-        font-size: 14px;
-    }
-    .payment-content div {
-        margin-bottom: 5px;
-        word-break: break-all;
-    }
-    .notice-text {
-        color: #b91c1c;
-        font-size: 12px;
-        font-weight: 600;
-    }
+/* 獨立卡片框樣式（匯款資訊框、報名流程框 - 改為置中對齊） */
+.box-card {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    padding: 18px;
+    border-radius: 14px;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #334155;
+    text-align: center; /* 整個區塊文字置中 */
+}
+.box-title {
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    text-align: center; /* 標題置中 */
+}
+.payment-content div {
+    margin-bottom: 6px;
+    word-break: break-all;
+    text-align: center; /* 內容文字置中 */
+}
+.notice-text {
+    color: #b91c1c;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center; /* 注意事項文字置中 */
+}
 
-    /* 底部聯絡資訊 */
-    .contact-info {
-        margin-top: 30px;
-        padding-top: 18px;
-        border-top: 1px solid #e2e8f0;
-        font-size: 13px;
-        color: #64748b;
-        line-height: 1.6;
-    }
-    .contact-info div {
-        margin-bottom: 6px;
-        word-break: break-all;
-    }
-    .contact-info a {
-        color: #0284c7;
-        text-decoration: none;
-        font-weight: 600;
-    }
-    .contact-info a:hover {
-        text-decoration: underline;
-    }
-/* 獨立卡片框樣式（與總金額框風格一致） */
-    .box-card {
-        background: #f8fafc;
-        border: 2px solid #e2e8f0;
-        padding: 18px;
-        border-radius: 14px;
-        margin-top: 15px;
-        font-size: 13px;
-        color: #334155;
-        text-align: left;
-    }
-    .box-title {
-        font-weight: 800;
-        color: #0f172a;
-        margin-bottom: 10px;
-        font-size: 14px;
-        border-bottom: 2px solid #e2e8f0;
-        padding-bottom: 6px;
-    }
-    .payment-content div {
-        margin-bottom: 6px;
-        word-break: break-all;
-    }
-    .notice-text {
-        color: #b91c1c;
-        font-size: 12px;
-        font-weight: 600;
-        line-height: 1.5;
-    }
-</style>
+/* 底部聯絡資訊：置中對齊 */
+.contact-info {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+    text-align: center; /* 聯絡資訊置中 */
+}
+.contact-info div {
+    margin-bottom: 6px;
+    word-break: break-all;
+}
+.contact-info a {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 600;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
