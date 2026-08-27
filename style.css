@@ -9,15 +9,15 @@ body {
     margin: 0 !important; 
 }
 
-/* 主卡片：改為純白色背景 */
+/* 主卡片：改為柔和的淺綠色背景 */
 .card {
-    background: #ffffff !important; 
+    background: #f0fdf4 !important; 
     padding: 40px !important; 
     border-radius: 20px !important; 
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important; 
     width: 480px !important; 
     box-sizing: border-box !important; 
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid #bbf7d0 !important;
 }
 
 .logo-container {
@@ -55,13 +55,13 @@ label {
     text-align: left;
 }
 
-/* 下拉選單：純白底色配微綠邊框 */
+/* 下拉選單：內部改為純白色 */
 select {
     width: 100%;
     padding: 12px 14px;
     font-size: 15px;
     border-radius: 10px;
-    border: 2px solid #86efac !important;
+    border: 2px solid #bbf7d0 !important;
     outline: none;
     background-color: #ffffff !important;
     box-sizing: border-box;
@@ -75,10 +75,10 @@ select:focus {
     box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
 }
 
-/* 勾選方塊外框：維持柔和淺綠底來做區隔 */
+/* 勾選方塊外框：內部改為純白色 */
 .checkbox-container {
-    background: #f0fdf4 !important;
-    border: 2px solid #86efac !important;
+    background: #ffffff !important;
+    border: 2px solid #bbf7d0 !important;
     padding: 20px;
     border-radius: 14px;
     margin-bottom: 22px;
@@ -91,7 +91,7 @@ select:focus {
     color: #047857 !important;
     margin-bottom: 12px;
     letter-spacing: 0.5px;
-    border-bottom: 2px solid #86efac !important;
+    border-bottom: 2px solid #e2e8f0 !important;
     padding-bottom: 6px;
     text-transform: uppercase;
     text-align: left;
@@ -116,14 +116,14 @@ select:focus {
     font-weight: 600;
     cursor: pointer;
     padding: 8px 10px;
-    background: #ffffff !important;
-    border: 1px solid #86efac !important;
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
     border-radius: 8px;
     text-align: left;
     transition: all 0.2s ease;
 }
 .checkbox-item:hover {
-    background-color: #dcfce7 !important;
+    background-color: #f0fdf4 !important;
     border-color: #059669 !important;
     color: #065f46 !important;
 }
@@ -142,14 +142,14 @@ select:focus {
     cursor: not-allowed;
 }
 
-/* 結果顯示框：淺綠底 */
+/* 結果顯示框：內部改為純白色 */
 .result {
     font-size: 14px;
     color: #064e3b !important;
-    background: #f0fdf4 !important;
+    background: #ffffff !important;
     padding: 22px;
     border-radius: 14px;
-    border: 2px solid #86efac !important;
+    border: 2px solid #bbf7d0 !important;
     text-align: left;
 }
 
@@ -178,10 +178,10 @@ select:focus {
     font-weight: 700;
 }
 
-/* 獨立卡片框（匯款資訊、報名流程）：淺綠底 */
+/* 獨立卡片框（匯款資訊、報名流程）：內部改為純白色 */
 .box-card {
-    background: #f0fdf4 !important;
-    border: 2px solid #86efac !important;
+    background: #ffffff !important;
+    border: 2px solid #bbf7d0 !important;
     padding: 18px;
     border-radius: 14px;
     margin-top: 15px;
@@ -194,7 +194,7 @@ select:focus {
     color: #064e3b !important;
     margin-bottom: 10px;
     font-size: 14px;
-    border-bottom: 2px solid #86efac !important;
+    border-bottom: 2px solid #e2e8f0 !important;
     padding-bottom: 6px;
     text-align: left;
 }
