@@ -28,7 +28,7 @@
             margin-bottom: 20px;
         }
         .logo-container img {
-            max-width: 150px; /* 可根據你的 logo 大小調整 */
+            max-width: 160px; /* 可根據你的 logo 大小調整 */
             height: auto;
         }
         h2 {
@@ -95,9 +95,9 @@
 <body>
 
     <div class="card">
-        <!-- Logo 區塊：請把 src 換成你的 logo 圖片網址或本地檔案名稱 -->
+        <!-- Logo 區塊：直接讀取你指定 GitHub 倉庫中的 logo.png -->
         <div class="logo-container">
-            <img src="https://via.placeholder.com/150x50?text=Your+Logo" alt="公司 Logo" id="companyLogo">
+            <img src="https://raw.githubusercontent.com/tjcpm109/tjcpm/cead8fe9d60a29ef4e203247ecc3f692dd5433eb/logo.png" alt="公司 Logo" id="companyLogo">
         </div>
 
         <h2>金額查詢系統</h2>
@@ -107,8 +107,8 @@
             <label for="mainCategory">選擇主類別：</label>
             <select id="mainCategory" onchange="handleMainChange()">
                 <option value="" disabled selected>請選擇項目</option>
-                <option value="training">人才培訓</option>
-                <option value="regen">再生醫療</option>
+                <option value="training">人才培訓 (NT$ 500)</option>
+                <option value="regen">再生醫療 (NT$ 3,200)</option>
                 <option value="ldts">第三類 LDTs</option>
             </select>
         </div>
@@ -118,8 +118,8 @@
             <label for="subCategory">選擇 LDTs 細項：</label>
             <select id="subCategory" onchange="updatePrice()">
                 <option value="" disabled selected>請選擇細項</option>
-                <option value="6000">單類別 A+B</option>
-                <option value="9500">A+B+D</option>
+                <option value="6000">單類別 A+B (NT$ 6,000)</option>
+                <option value="9500">A+B+D (NT$ 9,500)</option>
             </select>
         </div>
 
@@ -129,7 +129,7 @@
             <div class="price" id="priceDisplay">NT$ 0</div>
         </div>
 
-        <!-- 底部聯絡資訊 -->
+        <!-- 底部聯絡資訊 (可自行替換真實資料) -->
         <div class="contact-info">
             <div>📞 <strong>聯絡電話：</strong><a href="tel:0212345678">02-1234-5678</a></div>
             <div>✉️ <strong>電子信箱：</strong><a href="mailto:service@example.com">service@example.com</a></div>
