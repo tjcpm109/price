@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>金額查詢系統</title>
+    <title>LDTs 報名金額查詢系統</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,12 +19,11 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 420px;
+            width: 440px;
             box-sizing: border-box;
         }
-        /* Logo 樣式 */
         .logo-container {
+            text-align: center;
             margin-bottom: 20px;
         }
         .logo-container img {
@@ -32,13 +31,13 @@
             height: auto;
         }
         h2 {
+            text-align: center;
             margin-bottom: 20px;
             color: #333;
             font-size: 22px;
         }
         .form-group {
             margin-bottom: 15px;
-            text-align: left;
         }
         label {
             display: block;
@@ -56,33 +55,77 @@
             background-color: #fff;
             box-sizing: border-box;
         }
+        /* 勾選方塊區域 */
+        .checkbox-container {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+        }
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #333;
+            cursor: pointer;
+        }
+        .checkbox-item input {
+            margin-right: 6px;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+        .checkbox-item input:disabled {
+            cursor: not-allowed;
+        }
+        .checkbox-item.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+        /* 結果顯示 */
         .result {
-            font-size: 16px;
+            font-size: 14px;
             color: #555;
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            text-align: left;
             background: #f9f9f9;
             padding: 15px;
             border-radius: 8px;
+            border: 1px solid #e2e2e2;
         }
         .result-item {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         .price {
             font-size: 24px;
             font-weight: bold;
             color: #e74c3c;
-            margin-top: 5px;
             text-align: right;
+            margin-top: 5px;
         }
-        /* 底部聯絡資訊樣式 */
+        .error-msg {
+            color: #e74c3c;
+            font-size: 12px;
+            text-align: center;
+            margin-top: 5px;
+        }
+        /* 底部聯絡資訊 */
         .contact-info {
             margin-top: 25px;
             padding-top: 15px;
             border-top: 1px dashed #ddd;
-            text-align: left;
             font-size: 13px;
             color: #666;
             line-height: 1.6;
@@ -121,39 +164,31 @@
             </select>
         </div>
 
-        <!-- 第二層 LDTs 身分別 (選 LDTs 時出現) -->
-        <div class="form-group" id="ldtsSubGroup" style="display: none;">
-            <label for="ldtsType">選擇身分別 / 組合類別：</label>
-            <select id="ldtsType" onchange="handleLdtsTypeChange()">
-                <option value="" disabled selected>請選擇身分與組合</option>
-                <optgroup label="新進 (4,500元 + 加類別金額)">
-                    <option value="new_AB">新進：A+B (加類別 500元 / 報名費 5,000元)</option>
-                    <option value="new_AD">新進：A+D (加類別 1,000元 / 報名費 5,500元)</option>
-                    <option value="new_BD">新進：B+D (加類別 500元 / 報名費 5,000元)</option>
-                    <option value="new_ABD">新進：A+B+D (加類別 1,500元 / 報名費 6,000元)</option>
-                </optgroup>
-                <optgroup label="資深 (3,000元 + 加類別金額)">
-                    <option value="senior_EF">資深：E+F (加類別 1,500元 / 報名費 4,500元)</option>
-                    <option value="senior_EH">資深：E+H (加類別 1,500元 / 報名費 4,500元)</option>
-                    <option value="senior_FH">資深：F+H (加類別 1,000元 / 報名費 4,000元)</option>
-                    <option value="senior_EFH">資深：E+F+H (加類別 3,000元 / 報名費 6,000元)</option>
-                </optgroup>
-                <optgroup label="跨資格報名 (資深+新進實驗室人員，3,000元 + 加類別金額)">
-                    <option value="cross_EB">跨資格：E+B (加類別 2,000元 / 報名費 5,000元)</option>
-                    <option value="cross_ED">跨資格：E+D (加類別 3,000元 / 報名費 6,000元)</option>
-                    <option value="cross_EBD">跨資格：E+B+D (加類別 3,000元 / 報名費 6,000元)</option>
-                    <option value="cross_FA">跨資格：F+A (加類別 2,500元 / 報名費 5,500元)</option>
-                    <option value="cross_FD">跨資格：F+D (加類別 2,500元 / 報名費 5,500元)</option>
-                    <option value="cross_FAD">跨資格：F+A+D (加類別 3,000元 / 報名費 6,000元)</option>
-                    <option value="cross_HA">跨資格：H+A (加類別 3,000元 / 報名費 6,000元)</option>
-                    <option value="cross_HB">跨資格：H+B (加類別 2,500元 / 報名費 5,500元)</option>
-                    <option value="cross_HAB">跨資格：H+A+B (加類別 3,000元 / 報名費 6,000元)</option>
-                </optgroup>
-            </select>
+        <!-- 第三類 LDTs 專屬 A-H 勾選區 -->
+        <div id="ldtsContainer" style="display: none;">
+            <div class="checkbox-container">
+                <div class="section-title">【新進人員】</div>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item" id="label-A"><input type="checkbox" name="ldts" value="A" onchange="calculatePrice()"> A. 專任技術</label>
+                    <label class="checkbox-item" id="label-B"><input type="checkbox" name="ldts" value="B" onchange="calculatePrice()"> B. 醫檢師</label>
+                    <label class="checkbox-item" id="label-C"><input type="checkbox" name="ldts" value="C" onchange="calculatePrice()"> C. 醫師</label>
+                    <label class="checkbox-item" id="label-D"><input type="checkbox" name="ldts" value="D" onchange="calculatePrice()"> D. 其他相關</label>
+                </div>
+
+                <div class="section-title">【資深人員】</div>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item" id="label-E"><input type="checkbox" name="ldts" value="E" onchange="calculatePrice()"> E. 專任技術</label>
+                    <label class="checkbox-item" id="label-F"><input type="checkbox" name="ldts" value="F" onchange="calculatePrice()"> F. 醫檢師</label>
+                    <label class="checkbox-item" id="label-G"><input type="checkbox" name="ldts" value="G" onchange="calculatePrice()"> G. 醫師</label>
+                    <label class="checkbox-item" id="label-H"><input type="checkbox" name="ldts" value="H" onchange="calculatePrice()"> H. 其他相關</label>
+                </div>
+            </div>
+            <div id="errorMsg" class="error-msg"></div>
         </div>
 
         <!-- 顯示結果 -->
         <div class="result" id="resultBox">
+            <div class="result-item" id="categoryText" style="display: none;">報名類別：<span id="categoryDisplay" style="font-weight: bold; color: #333;"></span></div>
             <div class="result-item" id="extraFeeText" style="display: none;">加類別金額：<span id="extraDisplay">NT$ 0</span></div>
             <div>最終應繳報名費：</div>
             <div class="price" id="priceDisplay">NT$ 0</div>
@@ -169,69 +204,147 @@
     </div>
 
     <script>
-        // 定義 LDTs 各選項的加類別金額與總報名費
-        const ldtsPrices = {
-            // 新進
-            "new_AB": { extra: 500, total: 5000 },
-            "new_AD": { extra: 1000, total: 5500 },
-            "new_BD": { extra: 500, total: 5000 },
-            "new_ABD": { extra: 1500, total: 6000 },
-            // 資深
-            "senior_EF": { extra: 1500, total: 4500 },
-            "senior_EH": { extra: 1500, total: 4500 },
-            "senior_FH": { extra: 1000, total: 4000 },
-            "senior_EFH": { extra: 3000, total: 6000 },
-            // 跨資格
-            "cross_EB": { extra: 2000, total: 5000 },
-            "cross_ED": { extra: 3000, total: 6000 },
-            "cross_EBD": { extra: 3000, total: 6000 },
-            "cross_FA": { extra: 2500, total: 5500 },
-            "cross_FD": { extra: 2500, total: 5500 },
-            "cross_FAD": { extra: 3000, total: 6000 },
-            "cross_HA": { extra: 3000, total: 6000 },
-            "cross_HB": { extra: 2500, total: 5500 },
-            "cross_HAB": { extra: 3000, total: 6000 }
-        };
-
         function handleMainChange() {
             const mainCategory = document.getElementById("mainCategory").value;
-            const ldtsSubGroup = document.getElementById("ldtsSubGroup");
-            const ldtsType = document.getElementById("ldtsType");
+            const ldtsContainer = document.getElementById("ldtsContainer");
             const priceDisplay = document.getElementById("priceDisplay");
             const extraFeeText = document.getElementById("extraFeeText");
-            const extraDisplay = document.getElementById("extraDisplay");
+            const categoryText = document.getElementById("categoryText");
 
-            // 重置
-            ldtsType.value = "";
+            clearAllSelections();
             extraFeeText.style.display = "none";
+            categoryText.style.display = "none";
 
             if (mainCategory === "ldts") {
-                ldtsSubGroup.style.display = "block";
+                ldtsContainer.style.display = "block";
                 priceDisplay.textContent = "NT$ 0";
             } else {
-                ldtsSubGroup.style.display = "none";
+                ldtsContainer.style.display = "none";
                 if (mainCategory === "training") {
                     priceDisplay.textContent = "NT$ 500";
                 } else if (mainCategory === "regen") {
                     priceDisplay.textContent = "NT$ 3,200";
+                } else {
+                    priceDisplay.textContent = "NT$ 0";
                 }
             }
         }
 
-        function handleLdtsTypeChange() {
-            const selectedKey = document.getElementById("ldtsType").value;
+        function clearAllSelections() {
+            document.querySelectorAll('input[name="ldts"]').forEach(cb => {
+                cb.checked = false;
+                cb.disabled = false;
+                cb.closest('label').classList.remove('disabled');
+            });
+            document.getElementById("priceDisplay").textContent = "NT$ 0";
+            document.getElementById("extraFeeText").style.display = "none";
+            document.getElementById("categoryText").style.display = "none";
+            document.getElementById("errorMsg").textContent = "";
+        }
+
+        function calculatePrice() {
+            const checkedBoxes = Array.from(document.querySelectorAll('input[name="ldts"]:checked'));
+            const checkedValues = checkedBoxes.map(cb => cb.value).sort();
+            const checkedKey = checkedValues.join('+');
+
             const priceDisplay = document.getElementById("priceDisplay");
             const extraFeeText = document.getElementById("extraFeeText");
             const extraDisplay = document.getElementById("extraDisplay");
+            const categoryText = document.getElementById("categoryText");
+            const categoryDisplay = document.getElementById("categoryDisplay");
+            const errorMsg = document.getElementById("errorMsg");
 
-            if (selectedKey && ldtsPrices[selectedKey]) {
-                const data = ldtsPrices[selectedKey];
-                extraDisplay.textContent = `NT$ ${data.extra.toLocaleString()}`;
-                extraFeeText.style.display = "block";
-                priceDisplay.textContent = `NT$ ${data.total.toLocaleString()}`;
-            } else {
-                extraFeeText.style.display = "none";
+            errorMsg.textContent = "";
+
+            // 互斥邏輯控制
+            const hasA = checkedValues.includes('A');
+            const hasE = checkedValues.includes('E');
+            const hasB = checkedValues.includes('B');
+            const hasF = checkedValues.includes('F');
+            const hasC = checkedValues.includes('C');
+            const hasG = checkedValues.includes('G');
+            const hasD = checkedValues.includes('D');
+            const hasH = checkedValues.includes('H');
+
+            document.querySelectorAll('input[name="ldts"]').forEach(cb => {
+                const val = cb.value;
+                const label = cb.closest('label');
+                let shouldDisable = false;
+
+                // A 與 E 互斥
+                if ((val === 'A' && hasE) || (val === 'E' && hasA)) shouldDisable = true;
+                // B 與 F 互斥
+                if ((val === 'B' && hasF) || (val === 'F' && hasB)) shouldDisable = true;
+                // C 與 G 互斥 (且 C 或 G 被選時，不能選其他人)
+                if ((hasC || hasG) && !cb.checked) shouldDisable = true;
+                if ((val === 'C' || val === 'G') && (hasA || hasB || hasD || hasE || hasF || hasH)) shouldDisable = true;
+                // D 與 H 互斥
+                if ((val === 'D' && hasH) || (val === 'H' && hasD)) shouldDisable = true;
+
+                if (shouldDisable) {
+                    cb.disabled = true;
+                    label.classList.add('disabled');
+                } else {
+                    cb.disabled = false;
+                    label.classList.remove('disabled');
+                }
+            });
+
+            if (checkedValues.length === 0) {
                 priceDisplay.textContent = "NT$ 0";
+                extraFeeText.style.display = "none";
+                categoryText.style.display = "none";
+                return;
+            }
+
+            // 對照表規則 (自動對應新進、資深、跨資格)
+            const rules = {
+                'C': { name: '新進醫師 (C)', extra: 0, total: 4500 },
+                'G': { name: '資深醫師 (G)', extra: 0, total: 3000 },
+                
+                // 新進多類別
+                'A+B': { name: '新進 (A+B)', extra: 500, total: 5000 },
+                'A+D': { name: '新進 (A+D)', extra: 1000, total: 5500 },
+                'B+D': { name: '新進 (B+D)', extra: 500, total: 5000 },
+                'A+B+D': { name: '新進 (A+B+D)', extra: 1500, total: 6000 },
+
+                // 資深多類別
+                'E+F': { name: '資深 (E+F)', extra: 1500, total: 4500 },
+                'E+H': { name: '資深 (E+H)', extra: 1500, total: 4500 },
+                'F+H': { name: '資深 (F+H)', extra: 1000, total: 4000 },
+                'E+F+H': { name: '資深 (E+F+H)', extra: 3000, total: 6000 },
+
+                // 跨資格多類別 (自動排序確保組合成對應鍵值)
+                'B+E': { name: '跨資格 (E+B)', extra: 2000, total: 5000 },
+                'D+E': { name: '跨資格 (E+D)', extra: 3000, total: 6000 },
+                'B+D+E': { name: '跨資格 (E+B+D)', extra: 3000, total: 6000 },
+                'A+F': { name: '跨資格 (F+A)', extra: 2500, total: 5500 },
+                'D+F': { name: '跨資格 (F+D)', extra: 2500, total: 5500 },
+                'A+D+F': { name: '跨資格 (F+A+D)', extra: 3000, total: 6000 },
+                'A+H': { name: '跨資格 (H+A)', extra: 3000, total: 6000 },
+                'B+H': { name: '跨資格 (H+B)', extra: 2500, total: 5500 },
+                'A+B+H': { name: '跨資格 (H+A+B)', extra: 3000, total: 6000 }
+            };
+
+            const match = rules[checkedKey];
+            if (match) {
+                categoryDisplay.textContent = match.name;
+                categoryText.style.display = "block";
+                
+                if (match.extra > 0) {
+                    extraDisplay.textContent = `NT$ ${match.extra.toLocaleString()}`;
+                    extraFeeText.style.display = "block";
+                } else {
+                    extraFeeText.style.display = "none";
+                }
+                priceDisplay.textContent = `NT$ ${match.total.toLocaleString()}`;
+            } else {
+                priceDisplay.textContent = "NT$ 0";
+                extraFeeText.style.display = "none";
+                categoryText.style.display = "none";
+                if (checkedValues.length > 1) {
+                    errorMsg.textContent = "此勾選組合無對應的計費方案";
+                }
             }
         }
     </script>
