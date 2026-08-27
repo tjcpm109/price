@@ -1,24 +1,23 @@
-/* 全局設定：沉穩的深黑/深灰藍漸層背景，卡片置中 */
+/* 全局設定：沉穩黑色背景，卡片置中 */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(135deg, #090d11 0%, #111822 100%);
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh; 
-    margin: 0; 
-    color: #1e293b;
+    background: #030712 !important;
+    display: flex !important; 
+    justify-content: center !important; 
+    align-items: center !important; 
+    min-height: 100vh !important; 
+    margin: 0 !important; 
 }
 
-/* 主卡片：柔和的淺綠色背景 (#f0fdf4)，帶有精緻邊框與陰影 */
+/* 主卡片：柔和的淺綠色背景 */
 .card {
-    background: #f0fdf4; 
-    padding: 40px; 
-    border-radius: 20px; 
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); 
-    width: 480px; 
-    box-sizing: border-box; 
-    border: 1px solid #bbf7d0;
+    background: #f0fdf4 !important; 
+    padding: 40px !important; 
+    border-radius: 20px !important; 
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important; 
+    width: 480px !important; 
+    box-sizing: border-box !important; 
+    border: 1px solid #bbf7d0 !important;
 }
 
 .logo-container {
@@ -33,11 +32,11 @@ body {
     border-radius: 10px;
 }
 
-/* 主標題：深墨綠色文字 */
+/* 主標題 */
 h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #064e3b;
+    color: #064e3b !important;
     font-size: 24px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -47,54 +46,53 @@ h2 {
     margin-bottom: 22px;
 }
 
-/* 表單標籤：深灰綠色，清晰好讀 */
 label {
     display: block;
     font-size: 14px;
-    color: #065f46;
+    color: #065f46 !important;
     margin-bottom: 8px;
     font-weight: 700;
     text-align: left;
 }
 
-/* 下拉選單：純白底色配微綠邊框 */
+/* 下拉選單：背景改為跟主卡片一樣的淺綠色 */
 select {
     width: 100%;
     padding: 12px 14px;
     font-size: 15px;
     border-radius: 10px;
-    border: 2px solid #86efac;
+    border: 2px solid #86efac !important;
     outline: none;
-    background-color: #ffffff;
+    background-color: #f0fdf4 !important;
     box-sizing: border-box;
-    color: #064e3b;
+    color: #064e3b !important;
     font-weight: 600;
     text-align: left;
     transition: all 0.2s ease;
 }
 select:focus {
-    border-color: #059669;
+    border-color: #059669 !important;
+    background-color: #ffffff !important;
     box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
 }
 
-/* 勾選方塊外框：稍深一點的柔和淺綠底 */
+/* 勾選方塊外框：背景改為跟主卡片一樣的淺綠色 */
 .checkbox-container {
-    background: #dcfce7;
-    border: 2px solid #86efac;
+    background: #f0fdf4 !important;
+    border: 2px solid #86efac !important;
     padding: 20px;
     border-radius: 14px;
     margin-bottom: 22px;
     text-align: left;
 }
 
-/* 區塊小標題：鮮明深綠色 */
 .section-title {
     font-size: 13px;
     font-weight: 800;
-    color: #047857;
+    color: #047857 !important;
     margin-bottom: 12px;
     letter-spacing: 0.5px;
-    border-bottom: 2px solid #86efac;
+    border-bottom: 2px solid #86efac !important;
     padding-bottom: 6px;
     text-transform: uppercase;
     text-align: left;
@@ -110,25 +108,25 @@ select:focus {
     margin-bottom: 0;
 }
 
-/* 勾選項目：白底黑字，懸停時亮起綠色系 */
+/* 勾選項目：維持純白以便點擊辨識，懸停時變深 */
 .checkbox-item {
     display: flex;
     align-items: center;
     font-size: 13px;
-    color: #1e293b;
+    color: #1e293b !important;
     font-weight: 600;
     cursor: pointer;
     padding: 8px 10px;
-    background: #ffffff;
-    border: 1px solid #86efac;
+    background: #ffffff !important;
+    border: 1px solid #86efac !important;
     border-radius: 8px;
     text-align: left;
     transition: all 0.2s ease;
 }
 .checkbox-item:hover {
-    background-color: #f0fdf4;
-    border-color: #059669;
-    color: #065f46;
+    background-color: #dcfce7 !important;
+    border-color: #059669 !important;
+    color: #065f46 !important;
 }
 
 .checkbox-item input {
@@ -139,20 +137,20 @@ select:focus {
 }
 
 .checkbox-item.disabled {
-    color: #94a3b8;
+    color: #94a3b8 !important;
     background-color: #f1f5f9 !important;
     border-color: #cbd5e1 !important;
     cursor: not-allowed;
 }
 
-/* 結果顯示框 */
+/* 結果顯示框：背景改為跟主卡片一樣的淺綠色 */
 .result {
     font-size: 14px;
-    color: #1e293b;
-    background: #dcfce7;
+    color: #064e3b !important;
+    background: #f0fdf4 !important;
     padding: 22px;
     border-radius: 14px;
-    border: 2px solid #86efac;
+    border: 2px solid #86efac !important;
     text-align: left;
 }
 
@@ -160,44 +158,44 @@ select:focus {
     margin-bottom: 8px;
     font-weight: 600;
     text-align: left;
-    color: #064e3b;
+    color: #064e3b !important;
 }
 
-/* 金額：維持醒目亮紅色確保一眼就能看到 */
+/* 金額：維持醒目紅字 */
 .price {
     font-size: 32px;
     font-weight: 900;
-    color: #dc2626;
+    color: #dc2626 !important;
     text-align: right;
     margin-top: 5px;
     letter-spacing: -0.5px;
 }
 
 .error-msg {
-    color: #dc2626;
+    color: #dc2626 !important;
     font-size: 12px;
     text-align: center;
     margin-top: 10px;
     font-weight: 700;
 }
 
-/* 獨立卡片框（匯款資訊、報名流程） */
+/* 獨立卡片框（匯款資訊、報名流程）：背景改為跟主卡片一樣的淺綠色 */
 .box-card {
-    background: #dcfce7;
-    border: 2px solid #86efac;
+    background: #f0fdf4 !important;
+    border: 2px solid #86efac !important;
     padding: 18px;
     border-radius: 14px;
     margin-top: 15px;
     font-size: 13px;
-    color: #1e293b;
+    color: #064e3b !important;
     text-align: left;
 }
 .box-title {
     font-weight: 800;
-    color: #064e3b;
+    color: #064e3b !important;
     margin-bottom: 10px;
     font-size: 14px;
-    border-bottom: 2px solid #86efac;
+    border-bottom: 2px solid #86efac !important;
     padding-bottom: 6px;
     text-align: left;
 }
@@ -205,10 +203,10 @@ select:focus {
     margin-bottom: 6px;
     word-break: break-all;
     text-align: left;
-    color: #1e293b;
+    color: #1e293b !important;
 }
 .notice-text {
-    color: #b91c1c;
+    color: #b91c1c !important;
     font-size: 12px;
     font-weight: 600;
     line-height: 1.5;
@@ -219,9 +217,9 @@ select:focus {
 .contact-info {
     margin-top: 30px;
     padding-top: 18px;
-    border-top: 1px solid #86efac;
+    border-top: 1px solid #86efac !important;
     font-size: 13px;
-    color: #047857;
+    color: #047857 !important;
     line-height: 1.6;
     text-align: left;
 }
@@ -230,7 +228,7 @@ select:focus {
     word-break: break-all;
 }
 .contact-info a {
-    color: #0284c7;
+    color: #0284c7 !important;
     text-decoration: none;
     font-weight: 600;
 }
