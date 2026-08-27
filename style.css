@@ -1,29 +1,23 @@
 /* 全局設定：沉穩的深灰藍漸層背景，卡片整體置中 */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    color: #334155;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #0d1512 0%, #13221c 100%);
+    display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; color: #ecfdf5;
 }
-
-/* 主卡片：純白高質感，微弧度邊角與精緻陰影 */
 .card {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    width: 480px;
-    box-sizing: border-box;
+    background: #192b23; /* 卡片底色 */
+    padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); width: 480px; box-sizing: border-box; border: 1px solid #274437;
 }
-
-.logo-container {
-    text-align: center;
-    margin-bottom: 25px;
+.checkbox-container, select, .result, .box-card {
+    background: #111b17 !important; /* 內部區塊深底色 */
+    border: 2px solid #274437 !important;
+    color: #ecfdf5 !important;
 }
+.checkbox-item { background: #192b23 !important; border: 1px solid #274437 !important; color: #ecfdf5 !important; }
+.checkbox-item:hover { background: #274437 !important; border-color: #34d399 !important; color: #34d399 !important; }
+h2, .box-title, label { color: #ffffff !important; }
+.section-title { color: #34d399 !important; border-bottom-color: #274437 !important; }
+.price { color: #f87171 !important; }
 
 .logo-container img {
     width: 100%;
