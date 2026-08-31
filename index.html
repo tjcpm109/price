@@ -248,16 +248,11 @@
                 }
                 priceDisplay.textContent = `NT$ ${match.total.toLocaleString()}`;
                 
-            } else {
-                priceDisplay.textContent = "NT$ 0";
+                } else {
+                priceDisplay.textContent = "請洽本會";
                 extraFeeText.style.display = "none";
                 categoryText.style.display = "none";
-                
-                return;
-                if (checkedValues.length > 1) {
-                    errorMsg.textContent = "此勾選組合無對應的計費方案";
-                }
-            }
+                errorMsg.textContent = "此勾選組合無對應的計費方案，請洽本會確認費用";
         }
     </script>
 
