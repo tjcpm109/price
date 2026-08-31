@@ -55,7 +55,8 @@
             <div class="result-item" id="categoryText" style="display: none;">報名類別：<span id="categoryDisplay" style="font-weight: bold; color: #333;"></span></div>
             <div class="result-item" id="extraFeeText" style="display: none;">加類別金額：<span id="extraDisplay">NT$ 0</span></div>
             <div>應繳報名費：</div>
-            <div class="price" id="priceDisplay">NT$ 0</div>
+            <div class="price" id="priceDisplay">NT$ -</div>
+            <div class="result-note">※ 以上金額僅供參考，實際報名費用依本會最新公告為準，如遇費用調整，恕不另行通知，請以繳費當下公告金額為準。</div>
         </div>
 
         <!-- 框 1：匯款資訊框 (與總金額樣式類似) -->
@@ -93,6 +94,18 @@
     </div>
 
     <script>
+
+        // 頁面載入時，於結果卡片放上查詢日期浮水印
+        (function setDateWatermark() {
+            const now = new Date();
+            const y = now.getFullYear();
+            const m = String(now.getMonth() + 1).padStart(2, "0");
+            const d = String(now.getDate()).padStart(2, "0");
+            const wm = document.getElementById("dateWatermark");
+            if (wm) {
+                wm.textContent = `查詢日期 ${y}/${m}/${d}`;
+            }
+        })();
         function handleMainChange() {
             const mainCategory = document.getElementById("mainCategory").value;
             const ldtsContainer = document.getElementById("ldtsContainer");
