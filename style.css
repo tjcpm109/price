@@ -154,19 +154,17 @@ select:focus {
 }
 
 .result .watermark {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-1deg);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: rgba(5, 150, 105, 0.28);
-    white-space: nowrap;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-    letter-spacing: 1px;
-}
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-15deg);
+        font-size: 1rem;
+        font-weight: 800;
+        color: rgba(220, 38, 38, 0.4);
+        white-space: nowrap;
+        letter-spacing: 1px;
+        z-index: 2;
+    }
 
 .result > div,
 .result .price {
