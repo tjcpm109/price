@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TJCPM 課程報名金額查詢</title>
 <link rel="stylesheet" href="style.css">
+<style>
+    /* 讓結果卡片可以放置浮水印 */
+    .result {
+        position: relative;
+        overflow: hidden;
+    }
+    .result .watermark {
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-8deg);
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: rgba(5, 150, 105, 0.28);
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+        letter-spacing: 1px;
+    }
+    .result > div,
+    .result .price {
+        position: relative;
+        z-index: 1;
+    }
+    .result-note {
+        position: relative;
+        z-index: 1;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #b45309;
+        line-height: 1.5;
+    }
+</style>
 </head>
 <body>
 
@@ -50,11 +84,10 @@
         </div>
 
         <!-- 顯示結果 -->
-<!-- 顯示結果 -->
         <div class="result" id="resultBox">
             <div class="watermark" id="dateWatermark"></div>
             <div class="result-item" id="categoryText" style="display: none;">報名類別：<span id="categoryDisplay" style="font-weight: bold; color: #333;"></span></div>
-            <div class="result-item" id="extraFeeText" style="display: none;">加類別金額：<span id="extraDisplay">NT$ 0</span></div>
+            <div class="result-item" id="extraFeeText" style="display: none;">加類別金額：<span id="extraDisplay">NT$ -</span></div>
             <div>應繳報名費：</div>
             <div class="price" id="priceDisplay">NT$ -</div>
             <div class="result-note">※ 以上金額僅供參考，實際報名費用依本會最新公告為準，如遇費用調整，恕不另行通知，請以繳費當下公告金額為準。</div>
@@ -95,7 +128,6 @@
     </div>
 
     <script>
-
         // 頁面載入時，於結果卡片放上查詢日期浮水印
         (function setDateWatermark() {
             const now = new Date();
@@ -107,6 +139,7 @@
                 wm.textContent = `查詢日期 ${y}/${m}/${d}`;
             }
         })();
+
         function handleMainChange() {
             const mainCategory = document.getElementById("mainCategory").value;
             const ldtsContainer = document.getElementById("ldtsContainer");
@@ -121,7 +154,7 @@
             
             if (mainCategory === "ldts") {
                 ldtsContainer.style.display = "block";
-                priceDisplay.textContent = "NT$ 0";
+                priceDisplay.textContent = "NT$ -";
             } else {
                 ldtsContainer.style.display = "none";
                 if (mainCategory === "training") {
@@ -129,7 +162,7 @@
                 } else if (mainCategory === "regen") {
                     priceDisplay.textContent = "NT$ 3,200";
                 } else {
-                    priceDisplay.textContent = "NT$ 0";
+                    priceDisplay.textContent = "NT$ -";
                 }
             }
         }
@@ -140,7 +173,7 @@
                 cb.disabled = false;
                 cb.closest('label').classList.remove('disabled');
             });
-            document.getElementById("priceDisplay").textContent = "NT$ 0";
+            document.getElementById("priceDisplay").textContent = "NT$ -";
             document.getElementById("extraFeeText").style.display = "none";
             document.getElementById("categoryText").style.display = "none";
             document.getElementById("errorMsg").textContent = "";
@@ -191,7 +224,7 @@
             });
 
             if (checkedValues.length === 0) {
-                priceDisplay.textContent = "NT$ 0";
+                priceDisplay.textContent = "NT$ -";
                 extraFeeText.style.display = "none";
                 categoryText.style.display = "none";
                 return;
@@ -248,11 +281,12 @@
                 }
                 priceDisplay.textContent = `NT$ ${match.total.toLocaleString()}`;
                 
-                } else {
+            } else {
                 priceDisplay.textContent = "請洽本會";
                 extraFeeText.style.display = "none";
                 categoryText.style.display = "none";
                 errorMsg.textContent = "此勾選組合無對應的計費方案，請洽本會確認費用";
+            }
         }
     </script>
 
