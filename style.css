@@ -143,23 +143,38 @@ select:focus {
 }
 
 /* 結果顯示框：內部改為純白色 */
-.result {
-    font-size: 14px;
-    color: #064e3b !important;
-    background: #ffffff !important;
-    padding: 22px;
-    border-radius: 14px;
-    border: 2px solid #bbf7d0 !important;
-    text-align: left;
-}
-
-.result-item {
-    margin-bottom: 8px;
-    font-weight: 600;
-    text-align: left;
-    color: #064e3b !important;
-}
-
+/* 讓結果卡片可以放置浮水印 */
+    .result {
+        position: relative;
+        overflow: hidden;
+    }
+    .result .watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-20deg);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.08);
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+        letter-spacing: 2px;
+    }
+    .result > div,
+    .result .price {
+        position: relative;
+        z-index: 1;
+    }
+    .result-note {
+        position: relative;
+        z-index: 1;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #b45309;
+        line-height: 1.5;
+    }
 /* 金額：醒目紅字 */
 .price {
     font-size: 32px;
