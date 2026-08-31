@@ -155,17 +155,17 @@ select:focus {
 
 .result .watermark {
     position: absolute;
-    top: 50%;
+    top: 14px;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-20deg);
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: rgba(5, 150, 105, 0.18); /* 改用主題綠色，加深不透明度到 18% */
+    transform: translateX(-50%) rotate(-8deg);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgba(5, 150, 105, 0.28);
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
     z-index: 0;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
 }
 
 .result > div,
